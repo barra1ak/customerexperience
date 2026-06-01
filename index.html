@@ -27,6 +27,8 @@
 
     * { box-sizing: border-box; }
 
+    html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       background: var(--cx-bg);
@@ -81,7 +83,7 @@
     .cx-hero h1 {
       position: relative;
       z-index: 2;
-      max-width: 820px;
+      max-width: 860px;
       margin: 0 0 12px;
       font-size: clamp(32px, 5vw, 58px);
       line-height: 0.98;
@@ -91,7 +93,7 @@
     .cx-hero p {
       position: relative;
       z-index: 2;
-      max-width: 760px;
+      max-width: 790px;
       margin: 0;
       color: rgba(255,255,255,0.88);
       font-size: 17px;
@@ -109,12 +111,12 @@
     .cx-button {
       appearance: none;
       border: 0;
-      border-radius: 999px;
+      border-radius: 16px;
       padding: 12px 18px;
       font-weight: 800;
       font-size: 14px;
       cursor: pointer;
-      transition: transform .18s ease, box-shadow .18s ease, background .18s ease;
+      transition: transform .18s ease, box-shadow .18s ease, background .18s ease, border-color .18s ease;
       text-decoration: none;
       display: inline-flex;
       align-items: center;
@@ -159,6 +161,13 @@
       margin-top: 22px;
     }
 
+    .cx-four-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
     .cx-card {
       background: var(--cx-white);
       border: 1px solid var(--cx-line);
@@ -199,6 +208,7 @@
 
     .cx-section {
       margin-top: 24px;
+      scroll-margin-top: 18px;
     }
 
     .cx-section-header {
@@ -218,7 +228,7 @@
     }
 
     .cx-section-header p {
-      max-width: 560px;
+      max-width: 610px;
       margin: 0;
       color: var(--cx-muted);
       font-size: 15px;
@@ -235,7 +245,7 @@
       border: 1px solid var(--cx-line);
       background: white;
       color: var(--cx-navy);
-      border-radius: 999px;
+      border-radius: 16px;
       padding: 10px 14px;
       cursor: pointer;
       font-weight: 800;
@@ -383,6 +393,16 @@
       margin-top: 14px;
     }
 
+    .cx-persona-note {
+      border-left: 5px solid var(--cx-green);
+      background: var(--cx-green-soft);
+      padding: 14px 16px;
+      border-radius: 14px;
+      color: #24583b;
+      font-size: 14px;
+      margin-top: 12px;
+    }
+
     .cx-quiz {
       margin-top: 18px;
       padding: 18px;
@@ -422,6 +442,11 @@
       box-shadow: 0 8px 16px rgba(31,111,178,0.1);
     }
 
+    .cx-choice.selected {
+      border-color: var(--cx-blue);
+      box-shadow: 0 0 0 3px rgba(31,111,178,0.10);
+    }
+
     .cx-feedback {
       display: none;
       margin-top: 12px;
@@ -431,6 +456,171 @@
       border: 1px solid #cde2f2;
       color: var(--cx-navy);
       font-size: 14px;
+    }
+
+    .cx-learning-map {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .cx-concept-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .cx-concept {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 12px;
+      align-items: start;
+      padding: 13px;
+      border-radius: 18px;
+      background: #fbfdfe;
+      border: 1px solid var(--cx-line);
+    }
+
+    .cx-concept b {
+      color: var(--cx-navy);
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .cx-concept span {
+      color: var(--cx-muted);
+      font-size: 13px;
+    }
+
+    .cx-concept-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 16px;
+      display: grid;
+      place-items: center;
+      background: var(--cx-sky);
+      font-size: 21px;
+    }
+
+    .cx-flashcard {
+      min-height: 260px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: 24px;
+      border-radius: var(--cx-radius);
+      background:
+        radial-gradient(circle at top right, rgba(61,139,95,0.13), transparent 33%),
+        linear-gradient(135deg, #ffffff, #f1f8fd);
+      border: 1px solid #dcecf8;
+    }
+
+    .cx-flashcard h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      color: var(--cx-navy);
+      letter-spacing: -.035em;
+    }
+
+    .cx-flashcard p {
+      color: var(--cx-muted);
+      font-size: 15px;
+      margin: 0 0 16px;
+    }
+
+    .cx-small-note {
+      color: var(--cx-muted);
+      font-size: 12px;
+      margin-top: 10px;
+    }
+
+    .cx-scenario {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: 18px;
+      align-items: start;
+    }
+
+    .cx-scenario-status {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .cx-meter {
+      background: #f7fafc;
+      border: 1px solid var(--cx-line);
+      border-radius: 16px;
+      padding: 12px;
+    }
+
+    .cx-meter-top {
+      display: flex;
+      justify-content: space-between;
+      color: var(--cx-navy);
+      font-weight: 900;
+      font-size: 13px;
+      margin-bottom: 8px;
+    }
+
+    .cx-meter-track {
+      height: 9px;
+      border-radius: 999px;
+      background: #dbe7ef;
+      overflow: hidden;
+    }
+
+    .cx-meter-fill {
+      height: 100%;
+      width: 50%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--cx-blue), var(--cx-green));
+      transition: width .2s ease;
+    }
+
+    .cx-decision-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .cx-decision {
+      text-align: left;
+      width: 100%;
+      border: 1px solid var(--cx-line);
+      background: white;
+      border-radius: 18px;
+      padding: 15px;
+      cursor: pointer;
+      font-family: inherit;
+      transition: transform .15s ease, border .15s ease, box-shadow .15s ease;
+    }
+
+    .cx-decision:hover {
+      transform: translateY(-2px);
+      border-color: var(--cx-blue);
+      box-shadow: 0 10px 20px rgba(18,50,74,0.08);
+    }
+
+    .cx-decision strong {
+      display: block;
+      color: var(--cx-navy);
+      margin-bottom: 4px;
+    }
+
+    .cx-decision span {
+      color: var(--cx-muted);
+      font-size: 13px;
+    }
+
+    .cx-scenario-result {
+      margin-top: 12px;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid #d3e9fb;
+      background: var(--cx-sky);
+      color: var(--cx-navy);
+      font-size: 14px;
+      display: none;
     }
 
     .cx-builder {
@@ -592,9 +782,27 @@
       font-weight: 900;
     }
 
-    .cx-print-area {
-      display: none;
+    .cx-sparkline {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 8px;
+      margin-top: 12px;
     }
+
+    .cx-spark {
+      min-height: 92px;
+      border-radius: 16px;
+      border: 1px solid var(--cx-line);
+      background: #fbfdfe;
+      padding: 10px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      font-size: 12px;
+      color: var(--cx-muted);
+    }
+
+    .cx-spark b { color: var(--cx-navy); }
 
     .cx-mini-footer {
       text-align: center;
@@ -603,8 +811,13 @@
       margin-top: 28px;
     }
 
-    @media (max-width: 920px) {
+    .cx-print-area { display: none; }
+
+    @media (max-width: 1000px) {
       .cx-grid,
+      .cx-four-grid,
+      .cx-learning-map,
+      .cx-scenario,
       .cx-stage-wrap,
       .cx-builder {
         grid-template-columns: 1fr;
@@ -631,6 +844,8 @@
       .cx-hero { padding: 26px 22px; border-radius: 24px; }
       .cx-card, .cx-persona-card, .cx-journey-panel { padding: 18px; }
       .cx-score-box { grid-template-columns: 1fr; }
+      .cx-stage-top { align-items: flex-start; }
+      .cx-sparkline { grid-template-columns: 1fr; }
     }
 
     @media print {
@@ -658,9 +873,10 @@
     <section class="cx-hero">
       <div class="cx-eyebrow">🌱 Interactive mini-lab for non-ag professionals</div>
       <h1>Understand the customer experience behind buying agricultural inputs.</h1>
-      <p>Explore how growers evaluate trust, timing, risk, service, financing, agronomic advice, and post-purchase support when they buy products that affect an entire season.</p>
+      <p>Explore how growers, retailers, and ag decision makers evaluate trust, timing, risk, service, financing, agronomic advice, logistics, and post-purchase support when one decision can affect an entire season.</p>
       <div class="cx-hero-actions">
         <a class="cx-button primary" href="#learn">Start the learning lab</a>
+        <a class="cx-button secondary" href="#scenario">Try a field scenario</a>
         <a class="cx-button secondary" href="#builder">Build a customer experience</a>
       </div>
     </section>
@@ -689,6 +905,52 @@
       </article>
     </section>
 
+    <section class="cx-section" id="ag-lens">
+      <div class="cx-section-header">
+        <div>
+          <h2>What makes ag customer experience unique?</h2>
+        </div>
+        <p>Students can use this section as a quick decoder before entering the journey. It shows why an input purchase is different from a normal business purchase.</p>
+      </div>
+
+      <div class="cx-learning-map">
+        <section class="cx-card">
+          <h3>The ag lens</h3>
+          <p>In many industries, a customer can test, return, delay, or replace a product with limited consequence. In agriculture, timing, weather, biology, inventory, and local support can turn a normal buying decision into a high-stakes operational decision.</p>
+          <div class="cx-concept-list">
+            <div class="cx-concept">
+              <div class="cx-concept-icon">🌦️</div>
+              <div><b>External uncertainty</b><span>Weather, pests, disease pressure, markets, and supply chains can change the “right” decision quickly.</span></div>
+            </div>
+            <div class="cx-concept">
+              <div class="cx-concept-icon">🗓️</div>
+              <div><b>Compressed decision windows</b><span>Planting, application, and harvest windows make speed and dependability part of the value proposition.</span></div>
+            </div>
+            <div class="cx-concept">
+              <div class="cx-concept-icon">📍</div>
+              <div><b>Local fit matters</b><span>The same product can feel different depending on soil type, weather patterns, equipment, labor, crop, and management style.</span></div>
+            </div>
+            <div class="cx-concept">
+              <div class="cx-concept-icon">💬</div>
+              <div><b>Relationships carry memory</b><span>Customers remember who showed up during stressful moments, not just who offered the lowest price.</span></div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="cx-card">
+          <h3>Ag vocabulary flashcard</h3>
+          <div class="cx-flashcard">
+            <div>
+              <h3 id="termTitle">Acre</h3>
+              <p id="termDesc">A unit of land measurement. In input decisions, cost, rates, yield potential, and ROI are often discussed per acre.</p>
+              <button class="cx-button blue" type="button" id="nextTermBtn">Next term</button>
+              <div class="cx-small-note">Use these terms to help non-ag learners decode conversations.</div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
     <section class="cx-section" id="learn">
       <div class="cx-section-header">
         <div>
@@ -710,6 +972,9 @@
           <h3 id="personaTitle">Row Crop Grower</h3>
           <p id="personaDesc">Manages large seasonal decisions where timing, product fit, service, and financing can all affect profitability.</p>
           <div class="cx-tag-row" id="personaTags"></div>
+          <div class="cx-callout" style="margin-top:16px;">
+            <strong>Learning prompt:</strong> At each stage, ask: “What risk is the customer trying to reduce?”
+          </div>
         </aside>
 
         <section class="cx-journey-panel">
@@ -736,10 +1001,52 @@
             </div>
           </div>
           <div class="cx-callout" id="stageCallout"></div>
+          <div class="cx-persona-note" id="personaStageNote"></div>
+
           <div class="cx-quiz">
             <h4 id="quizQuestion">What would most improve confidence at this stage?</h4>
             <div class="cx-choice-grid" id="choiceGrid"></div>
             <div class="cx-feedback" id="quizFeedback"></div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="cx-section" id="scenario">
+      <div class="cx-section-header">
+        <div>
+          <h2>Scenario simulator</h2>
+        </div>
+        <p>Make a customer-experience decision during a stressful field moment. The goal is not to “sell harder.” It is to reduce risk and increase customer confidence.</p>
+      </div>
+
+      <div class="cx-scenario">
+        <section class="cx-card">
+          <h3>Situation</h3>
+          <p>A grower planned a crop protection application for this week. Rain is moving in, the product window is tightening, and the grower is worried about performance, labor, and whether the order will arrive in time.</p>
+          <div class="cx-scenario-status">
+            <div class="cx-meter">
+              <div class="cx-meter-top"><span>Customer confidence</span><span id="confidenceValue">55</span></div>
+              <div class="cx-meter-track"><div class="cx-meter-fill" id="confidenceFill" style="width:55%;"></div></div>
+            </div>
+            <div class="cx-meter">
+              <div class="cx-meter-top"><span>Operational clarity</span><span id="clarityValue">45</span></div>
+              <div class="cx-meter-track"><div class="cx-meter-fill" id="clarityFill" style="width:45%;"></div></div>
+            </div>
+            <div class="cx-meter">
+              <div class="cx-meter-top"><span>Relationship trust</span><span id="trustValue">60</span></div>
+              <div class="cx-meter-track"><div class="cx-meter-fill" id="trustFill" style="width:60%;"></div></div>
+            </div>
+          </div>
+          <div class="cx-small-note">Select a response on the right and watch the experience impact change.</div>
+        </section>
+
+        <section class="cx-card">
+          <h3>Choose the response</h3>
+          <div class="cx-decision-list" id="decisionList"></div>
+          <div class="cx-scenario-result" id="scenarioResult"></div>
+          <div style="margin-top:12px;">
+            <button class="cx-button light" id="resetScenarioBtn" type="button">Reset scenario</button>
           </div>
         </section>
       </div>
@@ -788,6 +1095,23 @@
           </div>
 
           <div class="cx-form-group">
+            <label for="journeyFocus">Journey focus</label>
+            <select class="cx-select" id="journeyFocus">
+              <option>Pre-season planning</option>
+              <option>Product comparison</option>
+              <option>Quote / order confirmation</option>
+              <option>Delivery and application timing</option>
+              <option>In-season support</option>
+              <option>Post-season review and renewal</option>
+            </select>
+          </div>
+
+          <div class="cx-form-group">
+            <label for="stakeholders">Who influences the decision?</label>
+            <textarea class="cx-textarea" id="stakeholders">Grower/owner, agronomist or trusted advisor, retailer/dealer contact, applicator or operations lead, and finance/bookkeeping support.</textarea>
+          </div>
+
+          <div class="cx-form-group">
             <label for="customerNeed">Customer need or tension</label>
             <textarea class="cx-textarea" id="customerNeed">The customer needs confidence that the recommendation fits their operation, arrives on time, and comes with support if field conditions change.</textarea>
           </div>
@@ -806,7 +1130,14 @@
               <label class="cx-checkbox"><input type="checkbox" value="Financing or cash-flow options"> Financing or cash-flow options</label>
               <label class="cx-checkbox"><input type="checkbox" value="In-season support plan" checked> In-season support plan</label>
               <label class="cx-checkbox"><input type="checkbox" value="Post-season performance review"> Post-season performance review</label>
+              <label class="cx-checkbox"><input type="checkbox" value="Local agronomic proof points"> Local agronomic proof points</label>
+              <label class="cx-checkbox"><input type="checkbox" value="Clear escalation path for urgent issues"> Clear escalation path for urgent issues</label>
             </div>
+          </div>
+
+          <div class="cx-form-group">
+            <label for="riskPlan">Risk-reduction plan</label>
+            <textarea class="cx-textarea" id="riskPlan">Confirm availability early, document what is included in the recommendation, set response expectations for urgent questions, and identify backup options if weather or supply conditions change.</textarea>
           </div>
 
           <div class="cx-form-group">
@@ -840,8 +1171,25 @@
               <div class="cx-score-ring"><span id="scoreValue">70</span></div>
               <div>
                 <h3 style="margin:0 0 6px;color:var(--cx-navy);">Experience strength score</h3>
-                <p style="margin:0;color:var(--cx-muted);font-size:14px;">A quick teaching score based on clarity, support, risk reduction, and follow-through elements selected.</p>
+                <p style="margin:0;color:var(--cx-muted);font-size:14px;">A teaching score based on clarity, local fit, support, risk reduction, stakeholder awareness, and follow-through.</p>
               </div>
+            </div>
+
+            <div class="cx-sparkline" aria-label="Experience score dimensions">
+              <div class="cx-spark"><b>Clarity</b><span id="scoreClarity">Good</span></div>
+              <div class="cx-spark"><b>Trust</b><span id="scoreTrust">Good</span></div>
+              <div class="cx-spark"><b>Risk</b><span id="scoreRisk">Moderate</span></div>
+              <div class="cx-spark"><b>Timing</b><span id="scoreTiming">Strong</span></div>
+              <div class="cx-spark"><b>Follow-up</b><span id="scoreFollow">Developing</span></div>
+            </div>
+
+            <div class="cx-summary-item">
+              <div class="cx-summary-label">Journey focus</div>
+              <div class="cx-summary-value" id="previewFocus"></div>
+            </div>
+            <div class="cx-summary-item">
+              <div class="cx-summary-label">Decision influencers</div>
+              <div class="cx-summary-value" id="previewStakeholders"></div>
             </div>
             <div class="cx-summary-item">
               <div class="cx-summary-label">Customer need</div>
@@ -854,6 +1202,10 @@
             <div class="cx-summary-item">
               <div class="cx-summary-label">Selected elements</div>
               <div class="cx-pill-list" id="previewElements"></div>
+            </div>
+            <div class="cx-summary-item">
+              <div class="cx-summary-label">Risk-reduction plan</div>
+              <div class="cx-summary-value" id="previewRiskPlan"></div>
             </div>
             <div class="cx-summary-item">
               <div class="cx-summary-label">Moments that matter</div>
@@ -880,25 +1232,53 @@
           icon: '🚜',
           title: 'Row Crop Grower',
           desc: 'Manages large seasonal decisions where timing, product fit, service, and financing can all affect profitability.',
-          tags: ['Seasonal risk', 'Yield goals', 'Dealer relationship', 'Cash flow']
+          tags: ['Seasonal risk', 'Yield goals', 'Dealer relationship', 'Cash flow'],
+          notes: [
+            'For a row crop grower, planning often connects acres, rotations, input budgets, equipment capacity, and local performance history.',
+            'Evaluation usually blends price, field-level fit, financing, dealer trust, and confidence that supply will be available when needed.',
+            'After purchase, clear logistics reduce anxiety because labor, equipment, and fieldwork need to be coordinated around weather.',
+            'In-season support is valuable because weather, pests, and field conditions may force quick changes to the original plan.',
+            'A useful review connects outcomes to next season’s plan rather than treating renewal as a simple reorder.'
+          ]
         },
         specialty: {
           icon: '🍎',
           title: 'Specialty Crop Grower',
           desc: 'Needs precise timing, quality protection, labor coordination, and careful product selection for high-value crops.',
-          tags: ['Quality risk', 'Tight timing', 'Compliance', 'High value per acre']
+          tags: ['Quality risk', 'Tight timing', 'Compliance', 'High value per acre'],
+          notes: [
+            'For specialty crops, planning often focuses on quality, compliance, labor availability, and the cost of missing a narrow treatment window.',
+            'Evaluation may weigh residue concerns, crop sensitivity, application restrictions, and proof that the recommendation fits the crop.',
+            'The buying experience should reduce surprises because missed timing can affect quality, marketability, and labor scheduling.',
+            'Support needs to be practical and responsive because many specialty crop decisions happen under intense timing pressure.',
+            'A strong review captures quality outcomes, timing, and what should be adjusted before the next production cycle.'
+          ]
         },
         dealer: {
           icon: '🏬',
           title: 'Ag Retail/Dealer Buyer',
           desc: 'Balances inventory, grower relationships, supplier commitments, logistics, margin, and local service expectations.',
-          tags: ['Inventory', 'Margin', 'Logistics', 'Grower trust']
+          tags: ['Inventory', 'Margin', 'Logistics', 'Grower trust'],
+          notes: [
+            'For a dealer, planning includes forecasting demand, protecting margin, and deciding what inventory commitments are safe.',
+            'Evaluation must account for grower expectations, supplier reliability, local demand, rebate structures, and service burden.',
+            'Buying and coordination affect many downstream customers, so visibility and accurate communication become part of the product value.',
+            'In-season support can protect the dealer’s reputation with growers when supply, weather, or product questions become urgent.',
+            'Renewal often depends on whether the supplier helped the dealer serve growers profitably and reliably.'
+          ]
         },
         newentrant: {
           icon: '🧭',
           title: 'New-to-Ag Decision Maker',
           desc: 'May understand business broadly but needs help decoding local agronomy, seasonal pressure, and relationship norms.',
-          tags: ['Learning curve', 'Terminology', 'Decision confidence', 'Context']
+          tags: ['Learning curve', 'Terminology', 'Decision confidence', 'Context'],
+          notes: [
+            'For a new-to-ag decision maker, planning needs plain-language context before detailed recommendations become useful.',
+            'Evaluation is easier when tradeoffs are explained clearly: price versus risk, local fit, timing, service, and support.',
+            'The buying step should include definitions, next steps, and a single clear path for questions because the process may be unfamiliar.',
+            'During the season, this person may need help understanding what is normal, what is urgent, and who should be involved.',
+            'A review is a learning tool that helps the customer build confidence and make better decisions next time.'
+          ]
         }
       };
 
@@ -980,7 +1360,48 @@
         }
       ];
 
+      const terms = [
+        ['Acre', 'A unit of land measurement. In input decisions, cost, rates, yield potential, and ROI are often discussed per acre.'],
+        ['Application window', 'The time period when a product can be applied effectively and safely. Weather can compress this window quickly.'],
+        ['Agronomist', 'A crop advisor who helps evaluate soil, crop, pest, nutrient, and product decisions.'],
+        ['Bushel', 'A common unit used to measure crop production. Yield is often discussed as bushels per acre for row crops.'],
+        ['Input', 'A product or service used to produce a crop, such as seed, fertilizer, crop protection, biologicals, equipment, or service.'],
+        ['Local fit', 'How well a product or recommendation matches the customer’s geography, soil, crop, weather, equipment, and management style.'],
+        ['Post-season review', 'A conversation after the season to evaluate outcomes, service, surprises, and next-season improvements.']
+      ];
+
+      const decisions = [
+        {
+          title: 'Send a generic product sheet and tell the grower to call with questions.',
+          desc: 'Low effort, but it does not reduce uncertainty or help the customer coordinate.',
+          confidence: -10, clarity: -5, trust: -8,
+          feedback: 'This feels efficient for the seller, but not necessarily helpful for the customer. During a stressful field moment, generic content can increase the burden on the grower.'
+        },
+        {
+          title: 'Confirm delivery status, explain the timing tradeoff, and identify the best contact for urgent questions.',
+          desc: 'Creates visibility, reduces anxiety, and gives the customer a clear next step.',
+          confidence: 18, clarity: 22, trust: 16,
+          feedback: 'Strong choice. The experience improves because the customer knows what is happening, why it matters, and who will help if the situation changes.'
+        },
+        {
+          title: 'Offer a discount but avoid discussing timing risk.',
+          desc: 'May help price perception, but does not solve the operational concern.',
+          confidence: 4, clarity: -6, trust: -2,
+          feedback: 'Price can help, but the core tension is timing and performance risk. A discount alone does not answer the customer’s most urgent question.'
+        },
+        {
+          title: 'Bring in an agronomic advisor and send a simple action plan with next steps.',
+          desc: 'Adds expertise and creates a practical path forward.',
+          confidence: 20, clarity: 18, trust: 20,
+          feedback: 'Excellent. This blends expertise with operational clarity. It shows the customer that support continues after the sale.'
+        }
+      ];
+
       let activeStage = 0;
+      let termIndex = 0;
+      let confidence = 55;
+      let clarity = 45;
+      let trust = 60;
 
       const personaSelect = document.getElementById('personaSelect');
       const personaIcon = document.getElementById('personaIcon');
@@ -995,7 +1416,13 @@
         personaIcon.textContent = persona.icon;
         personaTitle.textContent = persona.title;
         personaDesc.textContent = persona.desc;
-        personaTags.innerHTML = persona.tags.map(tag => `<span class="cx-tag">${tag}</span>`).join('');
+        personaTags.innerHTML = persona.tags.map(tag => `<span class="cx-tag">${escapeHTML(tag)}</span>`).join('');
+        renderPersonaStageNote();
+      }
+
+      function renderPersonaStageNote(){
+        const persona = personas[personaSelect.value];
+        document.getElementById('personaStageNote').innerHTML = '<strong>Through this customer lens:</strong> ' + escapeHTML(persona.notes[activeStage]);
       }
 
       function renderTabs(){
@@ -1017,10 +1444,11 @@
         document.getElementById('stageCallout').textContent = stage.callout;
         document.getElementById('quizQuestion').textContent = stage.question;
         document.getElementById('choiceGrid').innerHTML = stage.choices.map((choice, index) => `
-          <button class="cx-choice" type="button" data-choice="${index}">${choice[0]}</button>
+          <button class="cx-choice" type="button" data-choice="${index}">${escapeHTML(choice[0])}</button>
         `).join('');
         quizFeedback.style.display = 'none';
         quizFeedback.textContent = '';
+        renderPersonaStageNote();
         renderTabs();
       }
 
@@ -1034,6 +1462,8 @@
       document.getElementById('choiceGrid').addEventListener('click', function(e){
         const btn = e.target.closest('[data-choice]');
         if(!btn) return;
+        document.querySelectorAll('.cx-choice').forEach(choiceBtn => choiceBtn.classList.remove('selected'));
+        btn.classList.add('selected');
         const choice = stages[activeStage].choices[Number(btn.dataset.choice)];
         quizFeedback.style.display = 'block';
         quizFeedback.textContent = (choice[1] ? '✅ ' : '💡 ') + choice[2];
@@ -1041,22 +1471,92 @@
 
       personaSelect.addEventListener('change', renderPersona);
 
+      function renderTerm(){
+        document.getElementById('termTitle').textContent = terms[termIndex][0];
+        document.getElementById('termDesc').textContent = terms[termIndex][1];
+      }
+
+      document.getElementById('nextTermBtn').addEventListener('click', function(){
+        termIndex = (termIndex + 1) % terms.length;
+        renderTerm();
+      });
+
+      function clamp(num){
+        return Math.max(0, Math.min(100, num));
+      }
+
+      function updateMeters(){
+        confidence = clamp(confidence);
+        clarity = clamp(clarity);
+        trust = clamp(trust);
+        document.getElementById('confidenceValue').textContent = confidence;
+        document.getElementById('clarityValue').textContent = clarity;
+        document.getElementById('trustValue').textContent = trust;
+        document.getElementById('confidenceFill').style.width = confidence + '%';
+        document.getElementById('clarityFill').style.width = clarity + '%';
+        document.getElementById('trustFill').style.width = trust + '%';
+      }
+
+      function renderDecisions(){
+        document.getElementById('decisionList').innerHTML = decisions.map((decision, index) => `
+          <button class="cx-decision" type="button" data-decision="${index}">
+            <strong>${escapeHTML(decision.title)}</strong>
+            <span>${escapeHTML(decision.desc)}</span>
+          </button>
+        `).join('');
+      }
+
+      document.getElementById('decisionList').addEventListener('click', function(e){
+        const btn = e.target.closest('[data-decision]');
+        if(!btn) return;
+        const decision = decisions[Number(btn.dataset.decision)];
+        confidence += decision.confidence;
+        clarity += decision.clarity;
+        trust += decision.trust;
+        updateMeters();
+        const result = document.getElementById('scenarioResult');
+        result.style.display = 'block';
+        result.innerHTML = '<strong>Experience impact:</strong> ' + escapeHTML(decision.feedback);
+      });
+
+      document.getElementById('resetScenarioBtn').addEventListener('click', function(){
+        confidence = 55;
+        clarity = 45;
+        trust = 60;
+        updateMeters();
+        document.getElementById('scenarioResult').style.display = 'none';
+        document.getElementById('scenarioResult').textContent = '';
+      });
+
       function getCheckedElements(){
         return Array.from(document.querySelectorAll('#elementChecks input:checked')).map(input => input.value);
       }
 
       function calculateScore(elements){
-        let score = 35;
-        score += Math.min(elements.length * 8, 48);
+        let score = 28;
+        score += Math.min(elements.length * 7, 56);
         const promise = document.getElementById('promise').value.trim();
         const need = document.getElementById('customerNeed').value.trim();
         const moments = document.getElementById('moments').value.trim();
         const measurement = document.getElementById('measurement').value.trim();
+        const stakeholders = document.getElementById('stakeholders').value.trim();
+        const riskPlan = document.getElementById('riskPlan').value.trim();
         if(promise.length > 80) score += 5;
         if(need.length > 80) score += 4;
         if(moments.split('\n').filter(Boolean).length >= 4) score += 4;
         if(measurement.length > 60) score += 4;
+        if(stakeholders.length > 60) score += 4;
+        if(riskPlan.length > 80) score += 5;
+        if(elements.includes('Post-season performance review')) score += 3;
+        if(elements.includes('Clear escalation path for urgent issues')) score += 3;
         return Math.min(score, 100);
+      }
+
+      function labelFromScore(score){
+        if(score >= 85) return 'Strong';
+        if(score >= 70) return 'Good';
+        if(score >= 55) return 'Developing';
+        return 'Needs work';
       }
 
       function escapeHTML(str){
@@ -1070,8 +1570,11 @@
         const name = document.getElementById('expName').value.trim() || 'Customer Experience Concept';
         const inputType = document.getElementById('inputType').value;
         const customerType = document.getElementById('customerType').value;
+        const journeyFocus = document.getElementById('journeyFocus').value;
+        const stakeholders = document.getElementById('stakeholders').value.trim();
         const need = document.getElementById('customerNeed').value.trim();
         const promise = document.getElementById('promise').value.trim();
+        const riskPlan = document.getElementById('riskPlan').value.trim();
         const moments = document.getElementById('moments').value.trim();
         const measurement = document.getElementById('measurement').value.trim();
         const elements = getCheckedElements();
@@ -1079,15 +1582,24 @@
 
         document.getElementById('previewName').textContent = name;
         document.getElementById('previewSubtitle').textContent = inputType + ' · ' + customerType;
+        document.getElementById('previewFocus').textContent = journeyFocus;
+        document.getElementById('previewStakeholders').textContent = stakeholders || 'Add decision influencers.';
         document.getElementById('previewNeed').textContent = need || 'Add the customer need or tension.';
         document.getElementById('previewPromise').textContent = promise || 'Add the experience promise.';
+        document.getElementById('previewRiskPlan').textContent = riskPlan || 'Add the risk-reduction plan.';
         document.getElementById('previewMoments').textContent = moments || 'Add the critical moments.';
         document.getElementById('previewMeasurement').textContent = measurement || 'Add the success measures.';
         document.getElementById('previewElements').innerHTML = elements.length ? elements.map(el => `<span class="cx-pill">${escapeHTML(el)}</span>`).join('') : '<span class="cx-pill">Add at least one element</span>';
         document.getElementById('scoreValue').textContent = score;
         document.getElementById('scoreBox').style.setProperty('--scoreDeg', (score * 3.6) + 'deg');
 
-        return { name, inputType, customerType, need, promise, moments, measurement, elements, score };
+        document.getElementById('scoreClarity').textContent = labelFromScore((need.length > 80 ? 35 : 22) + (promise.length > 80 ? 35 : 22) + (elements.includes('Simple price and value comparison') ? 20 : 8));
+        document.getElementById('scoreTrust').textContent = labelFromScore((stakeholders.length > 60 ? 25 : 12) + (elements.includes('Local agronomic proof points') ? 30 : 12) + (elements.includes('Clear escalation path for urgent issues') ? 30 : 10));
+        document.getElementById('scoreRisk').textContent = labelFromScore((riskPlan.length > 80 ? 40 : 20) + (elements.includes('In-season support plan') ? 28 : 10) + (elements.includes('Financing or cash-flow options') ? 20 : 8));
+        document.getElementById('scoreTiming').textContent = labelFromScore((elements.includes('Delivery and availability tracker') ? 40 : 12) + (moments.split('\n').filter(Boolean).length >= 4 ? 35 : 18));
+        document.getElementById('scoreFollow').textContent = labelFromScore((elements.includes('Post-season performance review') ? 45 : 12) + (measurement.length > 60 ? 35 : 18));
+
+        return { name, inputType, customerType, journeyFocus, stakeholders, need, promise, riskPlan, moments, measurement, elements, score };
       }
 
       function buildPrintBrief(){
@@ -1097,7 +1609,11 @@
           <h1>${escapeHTML(data.name)}</h1>
           <p><strong>Input category:</strong> ${escapeHTML(data.inputType)}<br>
           <strong>Primary customer:</strong> ${escapeHTML(data.customerType)}<br>
+          <strong>Journey focus:</strong> ${escapeHTML(data.journeyFocus)}<br>
           <strong>Experience strength score:</strong> ${data.score}/100</p>
+
+          <h2>Decision influencers</h2>
+          <p>${escapeHTML(data.stakeholders).replace(/\n/g, '<br>')}</p>
 
           <h2>Customer need or tension</h2>
           <p>${escapeHTML(data.need).replace(/\n/g, '<br>')}</p>
@@ -1107,6 +1623,9 @@
 
           <h2>Helpful experience elements</h2>
           <p>${data.elements.length ? data.elements.map(el => `<span class="cx-print-pill">${escapeHTML(el)}</span>`).join('') : 'No elements selected.'}</p>
+
+          <h2>Risk-reduction plan</h2>
+          <p>${escapeHTML(data.riskPlan).replace(/\n/g, '<br>')}</p>
 
           <h2>Critical moments that matter</h2>
           <p>${escapeHTML(data.moments).replace(/\n/g, '<br>')}</p>
@@ -1125,8 +1644,11 @@
         document.getElementById('expName').value = 'Season-Ready Input Planning Experience';
         document.getElementById('inputType').value = 'Seed';
         document.getElementById('customerType').value = 'Large row crop operation';
+        document.getElementById('journeyFocus').value = 'Pre-season planning';
+        document.getElementById('stakeholders').value = 'Grower/owner, agronomist or trusted advisor, retailer/dealer contact, applicator or operations lead, and finance/bookkeeping support.';
         document.getElementById('customerNeed').value = 'The customer needs confidence that the recommendation fits their operation, arrives on time, and comes with support if field conditions change.';
         document.getElementById('promise').value = 'Make the buying process feel clearer, faster, and less risky by combining local advice, transparent pricing, delivery visibility, and proactive follow-up.';
+        document.getElementById('riskPlan').value = 'Confirm availability early, document what is included in the recommendation, set response expectations for urgent questions, and identify backup options if weather or supply conditions change.';
         document.getElementById('moments').value = '1. Pre-season planning conversation\n2. Final quote and order confirmation\n3. Delivery/application timing\n4. In-season troubleshooting\n5. Post-season review';
         document.getElementById('measurement').value = 'Customer confidence, fewer order surprises, on-time delivery, repeat purchase intent, fewer avoidable support calls, and documented in-season follow-up.';
         document.querySelectorAll('#elementChecks input').forEach(input => {
@@ -1135,7 +1657,7 @@
         updatePreview();
       });
 
-      ['expName','inputType','customerType','customerNeed','promise','moments','measurement'].forEach(id => {
+      ['expName','inputType','customerType','journeyFocus','stakeholders','customerNeed','promise','riskPlan','moments','measurement'].forEach(id => {
         document.getElementById(id).addEventListener('input', updatePreview);
         document.getElementById(id).addEventListener('change', updatePreview);
       });
@@ -1143,6 +1665,9 @@
 
       renderPersona();
       renderStage();
+      renderTerm();
+      renderDecisions();
+      updateMeters();
       updatePreview();
     })();
   </script>
